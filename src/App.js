@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import "./style.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import ListMovies from "./components/ListMovies";
+import MovieDetails from "./components/MovieDetails";
+
+
+
+
+const App = () => {
+    let [clickedMovieDetail, setClickedMovieDetail] = useState({});
+
+    console.log(clickedMovieDetail);
+
+    return(
+        <div>
+            <h1>Movies App</h1>
+            <div className="movie-container">
+                <ListMovies  allMovies={setClickedMovieDetail}/>
+                <MovieDetails  clickedMovieDetail={clickedMovieDetail}/>
+            </div>
+        </div>
+    )
 }
+    
 
 export default App;
+
+
+
+// step1:  display only the banner img && and name of the movie
+// when any movie banner is clicked, display the details of the movie in a detail
